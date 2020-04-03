@@ -30,7 +30,7 @@ For instructions on how to run these scripts with Linkerd, see the [linkerd/](li
 1. Install Istio:
 
     ```bash
-    export ISTIO_RELEASE=release-1.2-latest  # or any Istio release
+    export ISTIO_RELEASE=1.5.0  # or any Istio release
     export DNS_DOMAIN=local
     ./setup_istio.sh $ISTIO_RELEASE
     ```
@@ -38,7 +38,7 @@ For instructions on how to run these scripts with Linkerd, see the [linkerd/](li
    From Istio 1.4 later on, you should setup istio using the following commands:
 
    ```bash
-   export ISTIO_RELEASE=1.4-alpha.0ef2cd46e2da64b9252c36ca4bf90aa474b73610
+   export ISTIO_RELEASE=1.5.0
    export DNS_DOMAIN=local
    ./setup_istio_release.sh $ISTIO_RELEASE dev
    ```
