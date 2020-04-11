@@ -62,12 +62,12 @@ function collect_metrics() {
 mem_MB_max_telemetry_mixer,cpu_mili_avg_fortioserver_deployment_proxy,cpu_mili_max_fortioserver_deployment_proxy,\
 mem_MB_max_fortioserver_deployment_proxy,cpu_mili_avg_ingressgateway_proxy,cpu_mili_max_ingressgateway_proxy,mem_MB_max_ingressgateway_proxy
 
-  gsutil -q cp "${CSV_OUTPUT}" "gs://${GCS_BUCKET}/${OUTPUT_DIR}/benchmark.csv"
+  #gsutil -q cp "${CSV_OUTPUT}" "gs://${GCS_BUCKET}/${OUTPUT_DIR}/benchmark.csv"
 }
 
 function collect_flame_graph() {
     FLAME_OUTPUT_DIR="${WD}/flame/flameoutput/"
-    gsutil -q cp -r "${FLAME_OUTPUT_DIR}" "gs://${GCS_BUCKET}/${OUTPUT_DIR}/flamegraphs"
+    #gsutil -q cp -r "${FLAME_OUTPUT_DIR}" "gs://${GCS_BUCKET}/${OUTPUT_DIR}/flamegraphs"
 }
 
 function generate_graph() {
@@ -86,7 +86,7 @@ function get_benchmark_data() {
 function exit_handling() {
   # copy raw data from fortio client pod
   kubectl --namespace "${NAMESPACE}" cp "${FORTIO_CLIENT_POD}":/var/lib/fortio /tmp/rawdata -c shell
-  gsutil -q cp -r /tmp/rawdata "gs://${GCS_BUCKET}/${OUTPUT_DIR}/rawdata"
+  #gsutil -q cp -r /tmp/rawdata "gs://${GCS_BUCKET}/${OUTPUT_DIR}/rawdata"
   # output information for debugging
   kubectl logs -n "${NAMESPACE}" "${FORTIO_CLIENT_POD}" -c captured || true
   kubectl top pods --containers -n "${NAMESPACE}" || true
